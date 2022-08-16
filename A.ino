@@ -1,44 +1,82 @@
 #include<ipst.h>
-int R = 17 ,Y = 19,G = 20 ,speaker = 16;
+int R = 17 ,Y = 19,G = 20 ,speaker = 16,result;
 int t = 0,tMAX = 198 ,c = 0;
+bool Day = true;
 void setup() {
   pinLED8(18);
   setTextSize(3);
 }
 
 void loop() {
-  if(0 <= t && t < 42){
+  if(0 <= t && t < 198 && Day == true){
     if(t<40){
+      if(c == 0){beep(speaker);}
       c++;
-      int result = 40 - c ;
+      result = 40 - c ;
       out(R,0);
       out(Y,0);
       out(G,1);
       if(result == 0){c = 0;}
       glcd(0,0,"%d",result);
     }
-    else{
+    else if (t<42){
+      if(c == 0){beep(speaker);}
       c++;
-      int result = 2-c;
+      result = 2-c;
       out(R,0);
       out(Y,1);
       out(G,0);
       if(result == 0){c = 0;}
       glcd(0,0,"%d",result);
     }
+    else {
+      if(c == 0){beep(speaker);}
+      c++;
+      result = 156 - c;
+      out(R,1);
+      out(Y,0);
+      out(G,0);
+      if(result == 1){c = 0;}
+      glcd(0,0,"%d",result);
+    }
   }
-  else {
+  else if (0 <= t && t < 103 && Day == false){
+    if (t < 20){
+    if(c == 0){beep(speaker);}
     c++;
-    int result = 156 - c;
-    out(R,1);
+    result = 20 - c;
+    out(R,0);
     out(Y,0);
-    out(G,0);
+    out(G,1);
     if(result == 1){c = 0;}
     glcd(0,0,"%d",result);
+    }
+    else if (t < 22){
+      if(c == 0){beep(speaker);}
+      c++;
+      result = 2-c;
+      out(R,0);
+      out(Y,1);
+      out(G,0);
+      if(result == 0){c = 0;}
+      glcd(0,0,"%d",result);
+    }    
+    else {
+      if(c == 0){beep(speaker);}
+      c++;
+      result = 81 - c;
+      out(R,1);
+      out(Y,0);
+      out(G,0);
+      if(result == 1){c = 0;}
+      glcd(0,0,"%d",result);
+    }
   }
-  beep(speaker);
-  delay(100);
-  glcdClear();
+  if(sw_1() && Day == true){Day = false; t = 0; c = 0;}
+  if(sw_OK() && Day == false){Day = true; t = 0; c = 0;}
   t++;
-  if(t == 197){t = 0;}
+  if((t == 197 && Day == true)){t = 0;}
+  if((t == 102 && Day == false)){t = 0;}
+  delay(1000);
+  glcdClear();
 }
