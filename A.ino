@@ -9,25 +9,25 @@ void setup() {
 }
 
 void loop() {
-  if(0 <= t && t < 198 && Day == true){
-    if(t<40){
+  if(0 <= t && t <= 198 && Day == true){
+    if(t<=40){
       if(c == 0){beep(speaker);}
       c++;
       result = 40 - c ;
       out(R,0);
       out(Y,0);
       out(G,1);
-      if(result <= 0){c = 0;}
+      if(40 == c){c = 0;}
       glcd(0,0,"%d",result);
     }
-    else if (t<42){
+    else if (t<=42){
       if(c == 0){beep(speaker);}
       c++;
       result = 2-c;
       out(R,0);
       out(Y,1);
       out(G,0);
-      if(result <= 0){c = 0;}
+      if(2 <= c){c = 0;}
       glcd(0,0,"%d",result);
     }
     else {
@@ -37,29 +37,29 @@ void loop() {
       out(R,1);
       out(Y,0);
       out(G,0);
-      if(result <= 0){c = 0;}
+      if(156 <= c){c = 0;}
       glcd(0,0,"%d",result);
     }
   }
-  else if (0 <= t && t < 103 && Day == false){
-    if (t < 20){
+  else if (0 <= t && t <= 103 && Day == false){
+    if (t <= 20){
     if(c == 0){beep(speaker);}
     c++;
     result = 20 - c;
     out(R,0);
     out(Y,0);
     out(G,1);
-    if(result == 0){c = 0;}
+    if(20 <= c){c = 0;}
     glcd(0,0,"%d",result);
     }
-    else if (t < 22){
+    else if (t <= 22){
       if(c == 0){beep(speaker);}
       c++;
       result = 2-c;
       out(R,0);
       out(Y,1);
       out(G,0);
-      if(result == 0){c = 0;}
+      if(2 <= c){c = 0;}
       glcd(0,0,"%d",result);
     }    
     else {
@@ -69,15 +69,15 @@ void loop() {
       out(R,1);
       out(Y,0);
       out(G,0);
-      if(result <= 0){c = 0;}
+      if(81 <= c){c = 0;}
       glcd(0,0,"%d",result);
     }
   }
   if(sw_1() && Day == true){Day = false; t = 0; c = 0;}
   if(sw_OK() && Day == false){Day = true; t = 0; c = 0;}
   t++;
-  if((t == 197 && Day == true)){t = 0;}
-  if((t == 102 && Day == false)){t = 0;}
-  delay(1000);
+  if((t >= 198 && Day == true)){t = 0; c = 0;}
+  if((t >= 103 && Day == false)){t = 0; c = 0;}
+  delay(100);
   glcdClear();
 }
