@@ -1,10 +1,11 @@
 #include<ipst.h>
 int R = 17 ,Y = 19,G = 20 ,speaker = 16,result;
-int t = 0,tMAX = 198 ,c = 0;
+int t = 0,c = 0;
+int pattern[] = {0b11111111,0b01111111,0b00111111,0b00011111,0b00001111,0b00000111,0b00000011,0b00000001,0b00000000};
 bool Day = true;
 void setup() {
   pinLED8(18);
-  setTextSize(3);
+  setTextSize(5);
 }
 
 void loop() {
@@ -16,7 +17,7 @@ void loop() {
       out(R,0);
       out(Y,0);
       out(G,1);
-      if(result == 0){c = 0;}
+      if(result <= 0){c = 0;}
       glcd(0,0,"%d",result);
     }
     else if (t<42){
@@ -26,7 +27,7 @@ void loop() {
       out(R,0);
       out(Y,1);
       out(G,0);
-      if(result == 0){c = 0;}
+      if(result <= 0){c = 0;}
       glcd(0,0,"%d",result);
     }
     else {
@@ -36,7 +37,7 @@ void loop() {
       out(R,1);
       out(Y,0);
       out(G,0);
-      if(result == 1){c = 0;}
+      if(result <= 0){c = 0;}
       glcd(0,0,"%d",result);
     }
   }
@@ -48,7 +49,7 @@ void loop() {
     out(R,0);
     out(Y,0);
     out(G,1);
-    if(result == 1){c = 0;}
+    if(result == 0){c = 0;}
     glcd(0,0,"%d",result);
     }
     else if (t < 22){
@@ -68,7 +69,7 @@ void loop() {
       out(R,1);
       out(Y,0);
       out(G,0);
-      if(result == 1){c = 0;}
+      if(result <= 0){c = 0;}
       glcd(0,0,"%d",result);
     }
   }
