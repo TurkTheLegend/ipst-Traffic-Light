@@ -1,7 +1,7 @@
 #include<ipst.h>
 const int R = 17 ,Y = 19,G = 20 ,speaker = 16;
 int t = 0,c = 1 ,result;
-int pattern[] = {0b11111111,0b01111111,0b00111111,0b00011111,0b00001111,0b00000111,0b00000011,0b00000001};
+int pattern[] = {0b11111111,0b01111111,0b00111111,0b00011111,0b00001111,0b00000111,0b00000011,0b00000001,0b00000000};
 bool Day = true;
 void setup() {
   pinLED8(18);
@@ -22,7 +22,9 @@ void loop() {
       out(Y,0);
       out(G,1);
       glcd(0,0,"%d",result);
-      if(result < 5) {
+      if (result == 0){
+        LED8(pattern[8]);}
+      else if(result < 5) {
         LED8(pattern[7]);}
       else if (result < 10){
         LED8(pattern[6]);}
@@ -49,7 +51,7 @@ void loop() {
       out(G,0);
       glcd(0,0,"%d",result);
       if (result < 1){
-        LED8(pattern[4]);}
+        LED8(pattern[8]);}
       else if (result < 2) {
         LED8(pattern[0]);}
     }
@@ -62,7 +64,9 @@ void loop() {
       out(Y,0);
       out(G,0);
       glcd(0,0,"%d",result);
-      if(result < 20){
+      if (result == 0){
+        LED8(pattern[8]);}
+      else if(result < 20){
         LED8(pattern[7]);}
       else if (result < 39){
         LED8(pattern[6]);}
@@ -89,7 +93,9 @@ void loop() {
       out(Y,0);
       out(G,1);
       glcd(0,0,"%d",result);
-      if(result < 3) {
+      if (result == 0){
+        LED8(pattern[8]);}
+      else if(result < 3) {
         LED8(pattern[7]);}
       else if (result < 5){
         LED8(pattern[6]);}
@@ -116,7 +122,7 @@ void loop() {
       out(G,0);
       glcd(0,0,"%d",result);
       if (result < 1){
-        LED8(pattern[4]);}
+        LED8(pattern[8]);}
       else if (result < 2) {
         LED8(pattern[0]);}
     }    
@@ -129,7 +135,9 @@ void loop() {
       out(Y,0);
       out(G,0);
       glcd(0,0,"%d",result);
-      if(result < 10){
+      if (result == 0){
+        LED8(pattern[8]);}
+      else if(result < 10){
         LED8(pattern[7]);}
       else if (result < 20){
         LED8(pattern[6]);}
@@ -148,6 +156,6 @@ void loop() {
     }
   }
   t++;
-  delay(1000);
+  delay(100);
   glcdClear();
 }
