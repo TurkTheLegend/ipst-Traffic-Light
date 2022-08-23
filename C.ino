@@ -86,7 +86,7 @@ void loop() {
         LED8(pattern[0]);}
     }
     else {
-      if(t == 114){c = 1;}
+      if(t == 144){c = 1;}
       if(c == 1){beep(speaker);}
       result = 166 - c;
       c++;
@@ -158,10 +158,10 @@ void loop() {
       else if (result < 2) {
         LED8(pattern[0]);}
     }
-    else if (t >= 0 && t < 22 && ft == true) {
+    else if (t >= 0 && t < 59 && ft == true) {
       if(t == 0){c = 1;}
       if(c == 1){beep(speaker);}
-      result = 22 - c;
+      result = 59 - c;
       c++;
       out(R,1);
       out(Y,0);
@@ -187,7 +187,7 @@ void loop() {
         LED8(pattern[0]);}
     }
     else {
-      if(t == 59){c = 1;}
+      if(t == 76){c = 1;}
       if(c == 1){beep(speaker);}
       result = 86 - c;
       c++;
