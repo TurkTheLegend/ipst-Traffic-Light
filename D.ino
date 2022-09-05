@@ -129,7 +129,6 @@ void loop() {
         LED8(pattern[0]);}
     }
     else {
-      //if(t == 42){c = 1;}
       if(c == 1){beep(speaker);}
       result = 76 - c;
       c++;
@@ -158,6 +157,6 @@ void loop() {
     }
   }
   t++;
-  delay(100);
+  delay(1000);
   glcdClear();
 }

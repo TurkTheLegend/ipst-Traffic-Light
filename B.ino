@@ -216,6 +216,6 @@ void loop() {
     }
   }
   t++;
-  delay(100);
+  delay(1000);
   glcdClear();
 }

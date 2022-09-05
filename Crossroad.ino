@@ -28,7 +28,7 @@ int musicTick = 1 ;
 void setup(){
 
 pinLED8(18);//เสียบLED8ช่องที่18
-setTextSize(4);
+setTextSize(5);
 
 }
 

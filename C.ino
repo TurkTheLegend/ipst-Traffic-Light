@@ -86,7 +86,7 @@ void loop() {
         LED8(pattern[0]);}
     }
     else {
-      if(t == 144){c = 1;}
+      if(t == 146){c = 1;}
       if(c == 1){beep(speaker);}
       result = 166 - c;
       c++;
@@ -169,21 +169,21 @@ void loop() {
       glcd(0,0,"%d",result);
       if (result == 0){
         LED8(pattern[8]);}
-      else if(result < 3){
+      else if(result < 7){
         LED8(pattern[7]);}
-      else if (result < 6){
+      else if (result < 15){
         LED8(pattern[6]);}
-      else if (result < 8){
-        LED8(pattern[5]);}
-      else if (result < 11){
-        LED8(pattern[4]);}
-      else if (result < 14){
-        LED8(pattern[3]);}
-      else if (result < 17){
-        LED8(pattern[2]);}
-      else if (result < 19){
-        LED8(pattern[1]);}
       else if (result < 22){
+        LED8(pattern[5]);}
+      else if (result < 30){
+        LED8(pattern[4]);}
+      else if (result < 37){
+        LED8(pattern[3]);}
+      else if (result < 44){
+        LED8(pattern[2]);}
+      else if (result < 52){
+        LED8(pattern[1]);}
+      else if (result < 59){
         LED8(pattern[0]);}
     }
     else {
@@ -216,6 +216,6 @@ void loop() {
     }
   }
   t++;
-  delay(100);
+  delay(1000);
   glcdClear();
 }
